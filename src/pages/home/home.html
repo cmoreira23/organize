@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Início</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  >
+  <ion-fab top right edge >
+    <button ion-fab ><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>  
+      <button ion-fab (click)="create('AnotacaoPage')"><ion-icon name="organize-nota"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  
+  <ion-list >
+    <ion-item-sliding >
+        <ion-item >
+            <ion-card  *ngFor="let anotacao of anotacoes">
+                <ion-card-content *ngIf=" anotacao != null" >
+                  <h2> {{ anotacao.titulo }}</h2>
+                  <p>  {{ anotacao.conteudo }}  </p>
+                  <button ion-button clear color="danger"  side="left" (click)="remove(anotacao)" >
+                      <ion-icon name="trash"></ion-icon>
+                  </button>
+                   <button ion-button clear  side="left" (click)="editAnotacao(anotacao.id, anotacao.tipo)">
+                    <ion-icon name="create"></ion-icon>
+                  </button>
+                
+              </ion-card-content>
+            </ion-card>
+        </ion-item>
+        <ion-item  *ngIf=" anotacoes == null">
+            <ion-card >
+                <ion-card-content >
+                  <h2 >Este é um exemplo de nota</h2>
+                  <p >Este campo contém o conteúdo da nota.</p>
+                 
+                  <button ion-button clear color="danger"  (click)="remove()" >
+                      <ion-icon name="trash"></ion-icon>
+                 </button>
+                 <button  ion-button clear  >
+                    <ion-icon name="create"></ion-icon>
+               </button>
+               </ion-card-content>
+            </ion-card>
+        </ion-item>
+      </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar >
+      <button ion-button  class='btn-aub' icon-only >
+        <ion-icon  name="organize-format-size"></ion-icon>
+      </button>
+      <button ion-button  class='btn-aub' icon-only >
+        <ion-icon name="organize-color-text"></ion-icon>
+      </button>
+      <button ion-button class='btn-aub' icon-only >
+        <ion-icon name="organize-tutorial"></ion-icon>
+      </button>
+    </ion-toolbar>
+  </ion-footer> 

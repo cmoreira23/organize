@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Organize</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding  >
+    <ion-title>Lembrete</ion-title>
+    <form [formGroup]="lembrete" (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label floating>Data: </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" doneText="OK" cancelText="Cancelar" formControlName="data"></ion-datetime>
+        <ion-icon item-right name="md-calendar" ></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Horario:</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" doneText="Ok" cancelText="Cancelar" formControlName="horario"></ion-datetime> 
+        <ion-icon item-right name="md-time" ></ion-icon>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!lembrete.valid" block>Salvar</button>
+    </form>
+  </ion-content>
+  <ion-footer>
+      <ion-toolbar >
+        <button ion-button  class='btn-aub' icon-only >
+          <ion-icon  name="organize-format-size"></ion-icon>
+        </button>
+        <button ion-button  class='btn-aub' icon-only >
+          <ion-icon name="organize-color-text"></ion-icon>
+        </button>
+        <button ion-button class='btn-aub' icon-only >
+          <ion-icon name="organize-tutorial"></ion-icon>
+        </button>
+      </ion-toolbar>
+    </ion-footer> 

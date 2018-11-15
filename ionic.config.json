@@ -1,0 +1,7 @@
+{
+  "name": "organize",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

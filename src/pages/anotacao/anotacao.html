@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Nota</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding  >
+    <form [formGroup]="anotacao" (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label floating>Título: </ion-label>
+        <ion-input type="text" formControlName="titulo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descrição:</ion-label>
+        <ion-textarea rows="5" formControlName="conteudo"></ion-textarea>
+      </ion-item>
+      <button ion-button type="button" (click)="addLembrete()" block>Adicionar Lembrete</button>
+      <button ion-button type="submit" [disabled]="!anotacao.valid" block>Salvar</button>
+    </form>
+  </ion-content>
+  <ion-footer>
+      <ion-toolbar >
+        <button ion-button  class='btn-aub' icon-only >
+          <ion-icon  name="organize-format-size"></ion-icon>
+        </button>
+        <button ion-button  class='btn-aub' icon-only >
+          <ion-icon name="organize-color-text"></ion-icon>
+        </button>
+        <button ion-button class='btn-aub' icon-only >
+          <ion-icon name="organize-tutorial"></ion-icon>
+        </button>
+      </ion-toolbar>
+    </ion-footer> 
+
+  
